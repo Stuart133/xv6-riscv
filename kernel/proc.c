@@ -657,3 +657,19 @@ procdump(void)
     printf("\n");
   }
 }
+
+// Get the total number of in use processes
+int nproc() {
+  int count = 0;
+  for(int i = 0; i < NPROC; i++) {
+    acquire(&proc[i].lock);
+
+    if(proc[i].state != UNUSED) {
+      count++;
+    }
+
+    release(&proc[i].lock);
+  }
+
+  return count;
+}

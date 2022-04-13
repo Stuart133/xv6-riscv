@@ -80,3 +80,16 @@ kalloc(void)
     memset((char*)r, 5, PGSIZE); // fill with junk
   return (void*)r;
 }
+
+// Returns the total amount of free physical memory
+int freemem() {
+  int count = 0;
+  
+  acquire(&kmem.lock);
+  for(struct run *r = kmem.freelist; r != 0; r = r->next) {
+    count += 4096;
+  }
+  release(&kmem.lock);
+
+  return count;
+}
