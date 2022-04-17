@@ -7,6 +7,14 @@ but is implemented for a modern RISC-V multiprocessor using ANSI C.
 This fork contains various improvements to the xv6 code, with the aim of providing some more modern OS features in the future. It is 
 mainly a tool for my personal learning
 
+## TODOs
+
+Potential features to implement:
+
+- Best fit malloc
+- Next fit malloc
+- Slab allocator
+
 # ACKNOWLEDGMENTS
 
 xv6 is inspired by John Lions's Commentary on UNIX 6th Edition (Peer
